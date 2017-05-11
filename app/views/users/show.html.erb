@@ -1,0 +1,18 @@
+<p><%= link_to("Create events", controller: "events", action: "new")%></p>
+<p><%= link_to("View my events", controller: "events", action: "show")%></p>
+<p><%= link_to("View all events", controller: "events", action: "index")%></p>
+
+<h3>Upcoming events: </h3>
+<% current_user.upcoming_events.each do |a| %>
+	<%= a.description %><br>
+	Created by: <%= a.creator.name %><br>
+	Happening on: <%= a.date %>
+<% end %>
+
+<h3>Past events: </h3>
+<% current_user.past_events.each do |a| %>
+	<%= a.description %><br>
+	Created by: <%= a.creator.name %><br>
+	Happened on: <%= a.date %>
+<% end %>
+

@@ -1,0 +1,12 @@
+<h3>My events: </h3>
+<% @user.events.each do |e| %>
+<h4><%= e.description %></h4>
+<p>
+	Attendees: <%= e.attendees.each{|a| a.description + "\n"} %>
+</p>
+<h5>On <%= e.date %></h5>
+<br>
+
+<% end %>
+
+<%= link_to("Home",controller: "users", action: "show", id: @user.id) %>

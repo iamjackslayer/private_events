@@ -1,0 +1,17 @@
+<% @events.each do |e| %>
+Description: <br>
+
+<%= form_for("event",url:{controller: :users, action: :join},method: "get") do |f| %>
+<%= f.hidden_field(:event_id, value: e.id) %>
+<%= e.description %> <%= f.submit("Join event") %> 
+<% end %>
+
+ <br>
+
+On <%= e.date %> <br>
+Created by <%= e.creator.name %>
+<br>
+<br>
+<% end %>
+
+<%= link_to("Home",controller: "users", action: "show", id: session[:user_id]) %>
